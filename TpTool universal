@@ -1,0 +1,16 @@
+-- scripted by 620_h
+-- open source
+local tool = Instance.new("Tool")
+local backpack = game.Players.LocalPlayer:WaitForChild("Backpack")
+tool.RequiresHandle = false
+tool.Parent = backpack
+tool.Name = "TP Tool"
+tool.Activated:Connect(function()
+	local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse().Hit.Position
+	if plr.Character then
+		plr.Character.Humanoid.Sit = false
+		local HRP = plr.Character:WaitForChild("HumanoidRootPart")
+		HRP.CFrame = CFrame.new(mouse)
+	end
+end)
