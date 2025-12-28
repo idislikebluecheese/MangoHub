@@ -1,3 +1,4 @@
+-- LEGACY VERSION ONLY!!!
 -- open source
 -- scripted entirly by 620_h
 -- this script was lowkey rushed
