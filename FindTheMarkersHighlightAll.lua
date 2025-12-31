@@ -1,5 +1,6 @@
 -- scripted by 620_h
 -- please no skidding
+local fol = game:GetService("ReplicatedStorage").Markers
 function main()
 	local start = os.clock()
 	task.defer(function()
