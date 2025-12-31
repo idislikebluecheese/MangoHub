@@ -1,6 +1,28 @@
 -- scripted by 620_h
 -- please no skidding
 local fol = game:GetService("ReplicatedStorage").Markers
+function highlight(part, color)
+	if not part or not part:IsA("Model") and not part:IsA("Part") and not part:IsA("MeshPart") then
+		return
+	end
+	local hfol = workspace:FindFirstChild("HF")
+	if not hfol then
+		hfol = Instance.new("Folder")
+		hfol.Name = "HF"
+		hfol.Parent = workspace
+	end
+	local h,s,v = color:ToHSV()
+    local highlight = Instance.new("Highlight")
+    highlight.FillTransparency = 0.5
+	highlight.OutlineColor = color
+	highlight.OutlineTransparency = 0
+	highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+    highlight.FillColor = Color3.fromHSV(h, s, 1)
+	if part ~= nil and part ~= game.workspace then
+	highlight.Adornee = part
+	end
+	highlight.Parent = hfol
+end
 function main()
 	local start = os.clock()
 	task.defer(function()
