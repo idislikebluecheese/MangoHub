@@ -1,4 +1,5 @@
 --OPEN SOURCE
+--if you skid you are a low life form and a bottom tier human being
 local uis = game:GetService("UserInputService")
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Mango Hub Rainbow Friends 2", "DarkTheme")
@@ -198,7 +199,6 @@ plrS:NewToggle("Loop WalkSpeed", "", function(state)
 			local hum = char:WaitForChild('Humanoid')
 			repeat
 				hum.WalkSpeed = ws
-				task.wait()
 			until not lws
 		end
 	end
@@ -212,5 +212,33 @@ espS:NewToggle("Highlight All", "", function(state)
     end
 end)
 set:NewKeybind("Toggle", "KeybindInfo", Enum.KeyCode.LeftControl, function()
+	Library:ToggleUI()
+end)
+local gui = Instance.new("ScreenGui")
+local frame = Instance.new("Frame")
+local but = Instance.new("TextButton")
+local CU = Instance.new("UICorner")
+local preToggle = game.CoreGui:FindFirstChild("toggle")
+if preToggle then
+	preToggle:Destroy()
+end
+frame.Size = UDim2.new(0,100,0,50)
+gui.Parent = game.CoreGui
+but.Parent = frame
+but.Text = "Toggle"
+but.Font = "GothamBold"
+but.BackgroundTransparency = 0.2
+but.TextScaled = true
+CU.Parent = but
+CU.CornerRadius = UDim.new(0,12)
+but.Size = UDim2.new(0, 100, 0, 50)
+gui.ResetOnSpawn = false -- false
+frame.Visible = true
+frame.Parent = gui
+gui.Name = "toggle"
+frame.BackgroundTransparency = 1
+but.BorderSizePixel = 0
+but.ZIndex = 9999999
+but.MouseButton1Click:Connect(function()
 	Library:ToggleUI()
 end)
