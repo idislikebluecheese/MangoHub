@@ -199,6 +199,7 @@ plrS:NewToggle("Loop WalkSpeed", "", function(state)
 			local hum = char:WaitForChild('Humanoid')
 			repeat
 				hum.WalkSpeed = ws
+				task.wait()
 			until not lws
 		end
 	end
